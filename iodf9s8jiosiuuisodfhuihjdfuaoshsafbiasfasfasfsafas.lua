@@ -862,9 +862,9 @@ end
 end
 end)
 
-wait(45)
-warn('Client did not crash server within 45 seconds of Get Request.')
-game.Players.LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
+task.wait(50)
+warn('Client did not crash server within 50 seconds of Get Request.')
+game.Players.LocalPlayer:Kick('Client did not crash game within 50 seconds of last Get Request')
 
 end
 C.BasicSetup()
