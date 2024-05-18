@@ -871,9 +871,9 @@ function C.K_6416498845() -- CL Facility Roleplay
 		end
 	end)
 
-	wait(75)
-	printconsole('Client did not crash server within 75 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 75 seconds of last Get Request')
+	wait(120)
+	printconsole('Client did not crash server within 120 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 120 seconds of last Get Request')
 end
 function C.K_3226555017()
 	repeat wait() until game:IsLoaded()
