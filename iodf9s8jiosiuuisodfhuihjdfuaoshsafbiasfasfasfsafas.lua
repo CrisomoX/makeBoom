@@ -54,8 +54,8 @@ _G.CrashSettings = {
 }
 
 if _G.CrashSettings.Enabled ~= true then return end
---if KCLOADED == true then return task.spawn(error, 'K~ Crasher is already loaded! 0x1') end
---getgenv().KCLOADED = true
+if KCLOADED == game.JobId then return task.spawn(error, 'K~ Crasher is already loaded!') end
+getgenv().KCLOADED = game.JobId
 
 -- VegaX use only!
 if identifyexecutor() == "VegaX" then
@@ -114,7 +114,7 @@ Discord Webhook
 Description: Sends a discord webhook to the server
 ]]
 local request = (syn and syn.request) or http_request or request or game:GetService('RunService'):IsStudio() --[[ Testing purposes]] or false
-assert(request,'This exploit requires the request function to send Discord Webhooks'); print(3)
+assert(request,'This exploit requires the request function to send Discord Webhooks');
 local ForcedStopSent = false
 local function RetriveGameDetails()
 	if game:GetService('RunService'):IsStudio() then return end
@@ -327,7 +327,6 @@ function C.Timer()
 	wait(135)
 	C.KickUser(135)
 end
-	print('start')
 function C.BasicSetup()
 	if game.PlaceId == 8551316918 then
 	else
