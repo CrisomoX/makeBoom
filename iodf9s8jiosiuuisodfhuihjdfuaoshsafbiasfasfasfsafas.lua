@@ -9,7 +9,6 @@ Credits
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or warn
 
-warn(game:GetService('Players').Name)
 _G.CrashSettings = {
 	Enabled = true,
 	Games = {
@@ -870,3 +869,4 @@ end
 C.BasicSetup()
 C['K_'..game.PlaceId]()
 -- End of Crash Methods
+end)
