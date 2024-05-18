@@ -291,9 +291,9 @@ coroutine.wrap(function()
 			end)
 		end
 		if Err.Name == "ErrorTitle" then
-			print(Err.Text)
 			Err:GetPropertyChangedSignal("Text"):Connect(function()
 				wait(.55)
+				warn('GSUB: '..Err.Text)
 				if Err.Text:sub(0, 12) == "Disconnected" then
 					if _G.Disconnect ~= true then
 						print('So we disconnected right??')
