@@ -823,13 +823,16 @@ function C.K_6416498845() -- CL Facility Roleplay
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
 	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if not j then warn('j doesnt exist?', type(j),tostring(j):len()); end end)
 
+	local service = game:GetService('LogService').MessageOut:Connect(function(a,b)
+		if b == Enum.MessageType.MessageError then if a:find('SettingsController') and a:find('attempt to iterate') then pcall(function() task.cancel(core) end) end end
+	end)
+
 	asst = task.spawn(function()
 		while task.wait() do 
 			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
 				print('done');
 				if coroutine.status(core) ~= 'dead' then
-					task.cancel(core);
-					task.cancel(asst)
+					pcall(function() task.cancel(core); end)
 				end
 				return
 			end
@@ -846,6 +849,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 
 	repeat task.wait() until coroutine.status(core) == 'dead' or core == nil
 	task.cancel(asst)
+	service:Disconnect();
 
 	--[[	
 	for i = 1, 2 do
