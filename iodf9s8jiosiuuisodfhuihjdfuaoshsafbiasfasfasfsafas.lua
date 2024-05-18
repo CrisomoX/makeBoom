@@ -291,6 +291,8 @@ coroutine.wrap(function()
 			end)
 		end
 		if Err.Name == "ErrorTitle" then
+			Err = Dir:FindFirstChild(Err.Name, true) or Err
+			warn(Err, Err.Name, Err.Text, 'FOUND')
 			Err:GetPropertyChangedSignal("Text"):Connect(function()
 				wait(.55)
 				warn('GSUB: '..Err.Text)
