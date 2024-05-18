@@ -9,6 +9,7 @@ Credits
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or warn
 
+warn(game:GetService('Players').Name)
 _G.CrashSettings = {
 	Enabled = true,
 	Games = {
@@ -54,8 +55,7 @@ _G.CrashSettings = {
 }
 
 if _G.CrashSettings.Enabled ~= true then return end
-if _G.KCRASHER_RUNNING == true then return task.spawn(error, 'K CRASHER is already running') end
-_G.KCRASHER_RUNNING = true
+
 -- VegaX use only!
 if identifyexecutor() == "VegaX" then
 	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
@@ -267,11 +267,13 @@ end
 Teleport Script
 Description: Teleports user to a new game when they get disconnected
 ]]
+
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
-	local Dir = game:GetService'CoreGui':WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
+	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
+	warn('dir2')
 	Dir.DescendantAdded:Connect(function(Err)
-		warn('test12334445')
+		warn('dir2')
 		if Err.Name == 'ErrorMessage' then
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
@@ -297,7 +299,6 @@ coroutine.wrap(function()
 			end)
 		end
 	end)
-end)()
 -- End of Teleport Script --
 -- End of Discord Webhook --
 --[[
