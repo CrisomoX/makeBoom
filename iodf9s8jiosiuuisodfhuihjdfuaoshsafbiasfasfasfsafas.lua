@@ -90,12 +90,14 @@ for i,v in pairs(_G.CrashSettings.Games) do -- Check if the game is valid and is
 		printconsole('K Crasher detected a game')
 	end
 end
+print(1.5)
 if ValidGame == false then return printconsole('Debug: Not valid game') end
 -- End of Game Checker --
 --[[
 Whitelist Checker
 Description: Checks if a whitelisted user is in the game.
 ]]
+print(2)
 local function DetectWU()
 	for i,v in pairs(game:GetService('Players'):GetPlayers()) do
 		for _, q in pairs(_G.CrashSettings.WhitelistedAccounts) do
@@ -112,7 +114,7 @@ Discord Webhook
 Description: Sends a discord webhook to the server
 ]]
 local request = (syn and syn.request) or http_request or request or game:GetService('RunService'):IsStudio() --[[ Testing purposes]] or false
-assert(request,'This exploit requires the request function to send Discord Webhooks')
+assert(request,'This exploit requires the request function to send Discord Webhooks'); print(3)
 local ForcedStopSent = false
 local function RetriveGameDetails()
 	if game:GetService('RunService'):IsStudio() then return end
@@ -133,7 +135,7 @@ local function RetriveGameDetails()
 		UUID = HttpService:GenerateGUID(false)
 	}
 end
-
+print(4)
 local function SendServerCrashed(message)
 	local CrashSettings = _G.CrashSettings
 	if CrashSettings.WebhookSent == true then return end
@@ -200,7 +202,7 @@ local function ForcedStopMessage(message)
 	ForcedStopSent = true
 
 end
-print(5550505005505949850437475857239079530572395)
+print(5)
 local function HandleTeleportRequests()
 	print('Handle called')
 	local Ids = {}
@@ -271,7 +273,7 @@ end
 Teleport Script
 Description: Teleports user to a new game when they get disconnected
 ]]
-print(5)
+print(6)
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
@@ -315,6 +317,7 @@ local ReasonsRP = {
 	'hi',
 	'bye'
 }
+		print(7)
 function C.KickUser(res)
 	--	TimedStarted = tick()
 	if typeof(res) == 'number' then
