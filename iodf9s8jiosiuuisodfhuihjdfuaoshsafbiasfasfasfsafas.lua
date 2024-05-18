@@ -8,7 +8,7 @@ Credits
 ]]
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or (function(...)
-warn('[K~]: '...)
+warn('[K~ Debug]:',...)
 end)()
 
 _G.CrashSettings = {
