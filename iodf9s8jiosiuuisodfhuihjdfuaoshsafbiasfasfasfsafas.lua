@@ -38,8 +38,10 @@ _G.CrashSettings = {
 		3260475977, -- Kessler40546
 		3256628822, -- Feeney87734 -- banned
 		4177588779, -- notMiltzz -- banned
-		3262990286, -- Rice48454
+		3262990286, -- Rice48454 -- banned
 		3931961529, -- BallersiKiller 
+		5397348825,
+		5397412913
 	},
 	RP_Reasons = {
 		'hi',
