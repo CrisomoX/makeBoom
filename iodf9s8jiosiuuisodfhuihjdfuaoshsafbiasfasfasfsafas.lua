@@ -280,6 +280,7 @@ coroutine.wrap(function()
 	warn('Found DIRECTORY K~ Crahser');
 	Dir.DescendantAdded:Connect(function(Err)
 		if Err.Name == 'ErrorMessage' then
+			_G.ErrMessage = if Dir:FindFirstChild('ErrorMessage', true) then Dir:FindFirstChild('ErrorMessage', true).Text else '?'
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
 				if Err.Text:find("currently unava") or Err.Text:find('no longer have acc') then
