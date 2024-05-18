@@ -914,9 +914,9 @@ wait(1)
 		end
 	end)
 
-	wait(55)
-	printconsole('Client did not crash server within 55 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 55 seconds of last Get Request')
+	wait(120)
+	printconsole('Client did not crash server within 120 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 120 seconds of last Get Request')
 
 end
 C.BasicSetup()
