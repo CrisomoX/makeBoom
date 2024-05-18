@@ -846,7 +846,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 
 	repeat task.wait() until coroutine.status(core) == 'dead' or core == nil
 	task.cancel(asst)
-	printconsole('Is now dead :D')
 
 	--[[	
 	for i = 1, 2 do
@@ -855,7 +854,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 		SettingsService.RF.Set:InvokeServer({LongString});
 	end
 	]]
-	task.wait(3)	
 	--end
 	printconsole('Game server completed sending request!')
 	printconsole('Attempting to crash')
