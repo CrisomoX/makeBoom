@@ -837,8 +837,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 			game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
 			SettingsService.RF.Set:InvokeServer({LongString});
 		end
-						printconsole('is not dead 2')
-		task.cancel(core)
+		pcall(function() task.cancel(core) end)
 	end)
 	
 	repeat task.wait() until coroutine.status(core) == 'dead'
