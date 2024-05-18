@@ -819,13 +819,38 @@ function C.K_6416498845() -- CL Facility Roleplay
 }
 ]]
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
-	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if j then print(j[1]:len()) else warn('j doesnt exist?', type(j)) end end)
+	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if j not warn('j doesnt exist?', type(j)) end end)
+
+	spawn(function()
+		if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
+			print('done');
+			if coroutine.status(core) ~= 'dead' then
+				task.cancel(core)
+			end
+			return
+		end
+	end)
+	
+	core = task.spawn(function()
+		for i = 1, 2 do
+			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done2'); task.cancel(core) return end
+			game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
+			SettingsService.RF.Set:InvokeServer({LongString});
+		end
+						printconsole('is not dead 2')
+		task.cancel(core)
+	end)
+	
+	repeat task.wait() until coroutine.status(core) == 'dead'
+	printconsole('Is now dead :D')
+	
+	--[[	
 	for i = 1, 2 do
 		if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done'); return end
 		game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
 		SettingsService.RF.Set:InvokeServer({LongString});
 	end
-
+	]]
 	task.wait(3)	
 	--end
 	printconsole('Game server completed sending request!')
