@@ -795,6 +795,8 @@ function C.K_6416498845() -- CL Facility Roleplay
 		return
 	end
 
+	wait(1)
+
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
