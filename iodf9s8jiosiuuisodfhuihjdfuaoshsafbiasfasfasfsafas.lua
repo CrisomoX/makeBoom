@@ -818,16 +818,22 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
+	local core;
+	local asst;
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
-	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if not j then warn('j doesnt exist?', type(j)) end end)
+	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j if not j then warn('j doesnt exist?', type(j),tostring(j):len()); end end)
 
 	spawn(function()
-		if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
+	asst = task.spawn(function()
+		while task.wait() do 
+				if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
 			print('done');
-			if coroutine.status(core) ~= 'dead' then
-				task.cancel(core)
-			end
+				if coroutine.status(core) ~= 'dead' then
+					task.cancel(core)
+				end
 			return
+		    end
+		end)
 		end
 	end)
 	
