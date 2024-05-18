@@ -54,7 +54,8 @@ _G.CrashSettings = {
 }
 
 if _G.CrashSettings.Enabled ~= true then return end
-
+if _G.KCRASHER_RUNNING == true then return task.spawn(error, 'K CRASHER is already running') end
+_G.KCRASHER_RUNNING = true
 -- VegaX use only!
 if identifyexecutor() == "VegaX" then
 	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
