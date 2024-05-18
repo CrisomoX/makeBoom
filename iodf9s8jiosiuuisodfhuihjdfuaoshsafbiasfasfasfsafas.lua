@@ -236,7 +236,7 @@ local function HandleTeleportRequests()
 				end
 
 				--warn('Total number of servers:', #Ids)
-				wait(15)
+				wait(5)
 			end
 		end)()
 
