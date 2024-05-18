@@ -61,7 +61,7 @@ if _G.CrashSettings.Enabled ~= true then return end
 if identifyexecutor() == "VegaX" then
 	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
 end
-print(1)
+
 -- Services --
 local Players = game:GetService('Players')
 local TeleportService = game:GetService('Players')
@@ -90,14 +90,14 @@ for i,v in pairs(_G.CrashSettings.Games) do -- Check if the game is valid and is
 		printconsole('K Crasher detected a game')
 	end
 end
-print(1.5)
+
 if ValidGame == false then return printconsole('Debug: Not valid game') end
 -- End of Game Checker --
 --[[
 Whitelist Checker
 Description: Checks if a whitelisted user is in the game.
 ]]
-print(2)
+
 local function DetectWU()
 	for i,v in pairs(game:GetService('Players'):GetPlayers()) do
 		for _, q in pairs(_G.CrashSettings.WhitelistedAccounts) do
@@ -135,7 +135,7 @@ local function RetriveGameDetails()
 		UUID = HttpService:GenerateGUID(false)
 	}
 end
-print(4)
+
 local function SendServerCrashed(message)
 	local CrashSettings = _G.CrashSettings
 	if CrashSettings.WebhookSent == true then return end
@@ -202,7 +202,7 @@ local function ForcedStopMessage(message)
 	ForcedStopSent = true
 
 end
-print(5)
+
 local function HandleTeleportRequests()
 	print('Handle called')
 	local Ids = {}
@@ -273,7 +273,6 @@ end
 Teleport Script
 Description: Teleports user to a new game when they get disconnected
 ]]
-print(6)
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
@@ -305,6 +304,7 @@ coroutine.wrap(function()
 			end)
 		end
 	end)
+end)()
 -- End of Teleport Script --
 -- End of Discord Webhook --
 --[[
@@ -317,7 +317,6 @@ local ReasonsRP = {
 	'hi',
 	'bye'
 }
-		print(7)
 function C.KickUser(res)
 	--	TimedStarted = tick()
 	if typeof(res) == 'number' then
