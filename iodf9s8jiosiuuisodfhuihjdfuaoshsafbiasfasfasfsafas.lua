@@ -824,7 +824,8 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
-	SettingsService.RF.Set:InvokeServer({LongString});
+	for i = 1, 2 do SettingsService.RF.Set:InvokeServer({LongString}); end
+
 	--end
 	warn('Game server completed sending request!')
 	warn('Attempting to crash')
