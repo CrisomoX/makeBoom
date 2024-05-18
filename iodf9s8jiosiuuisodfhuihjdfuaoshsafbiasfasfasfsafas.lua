@@ -122,7 +122,6 @@ local function RetriveGameDetails()
 		Url = 'https://thumbnails.roblox.com/v1/places/gameicons?placeIds='..game.PlaceId..'&size=50x50&format=Png&isCircular=false',
 		Method = 'GET',
 	}).Body
-	print(2)
 	local GameDetails = Marketplace:GetProductInfo(game.PlaceId)
 	return {
 		TotalPlayers = '**'..(#Players:GetPlayers())..'**',
@@ -204,7 +203,6 @@ local function ForcedStopMessage(message)
 end
 
 local function HandleTeleportRequests()
-	print('Handle called')
 	local Ids = {}
 	local TS, HS = game:GetService('TeleportService'), game:GetService('HttpService')
 	local GetRequest = game:HttpGetAsync('https://games.roblox.com/v1/games/'..game['PlaceId']..'/servers/Public?sortOrder=Asc&limit=100')
@@ -218,9 +216,7 @@ local function HandleTeleportRequests()
 					return HS:JSONDecode(GetRequest)['data']
 				end)
 				if typeof(response) ~= 'table' then
-					warn('Failed to fetch data')
-					warn(typeof(response))
-					warn(tostring(response))
+					warn('Failed to fetch data', typeof(response), tostring(response))
 				else
 					Data = response
 					--warn('Fetched new data')
