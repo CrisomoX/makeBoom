@@ -877,4 +877,3 @@ end
 C.BasicSetup()
 C['K_'..game.PlaceId]()
 -- End of Crash Methods
-end)
