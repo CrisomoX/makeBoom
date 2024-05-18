@@ -202,6 +202,7 @@ local function ForcedStopMessage(message)
 end
 print(5550505005505949850437475857239079530572395)
 local function HandleTeleportRequests()
+	print('Handle called')
 	local Ids = {}
 	local TS, HS = game:GetService('TeleportService'), game:GetService('HttpService')
 	local GetRequest = game:HttpGetAsync('https://games.roblox.com/v1/games/'..game['PlaceId']..'/servers/Public?sortOrder=Asc&limit=100')
