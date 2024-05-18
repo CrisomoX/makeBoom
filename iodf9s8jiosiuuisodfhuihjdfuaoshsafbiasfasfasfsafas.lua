@@ -818,11 +818,12 @@ function C.K_6416498845() -- CL Facility Roleplay
 	}
 }
 ]]
-	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j print(j[1]:len(), 'also1') end)
 	game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge)
+	spawn(function() local j = SettingsService.RF.Get:InvokeServer(); _G.um = j print(j[1]:len()) end)
 	for i = 1, 2 do
 		if _G.um ~= nil and _G.um:len() >= 9500000 then print('done'); return end
-		game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge); SettingsService.RF.Set:InvokeServer({LongString});
+		game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
+		SettingsService.RF.Set:InvokeServer({LongString});
 	end
 
 	task.wait(3)	
