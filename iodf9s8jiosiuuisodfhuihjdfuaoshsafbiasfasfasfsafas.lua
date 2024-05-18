@@ -271,7 +271,7 @@ end
 Teleport Script
 Description: Teleports user to a new game when they get disconnected
 ]]
-
+print(5)
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
@@ -327,6 +327,7 @@ function C.Timer()
 	wait(135)
 	C.KickUser(135)
 end
+	print('start')
 function C.BasicSetup()
 	if game.PlaceId == 8551316918 then
 	else
@@ -362,8 +363,8 @@ function C.BasicSetup()
 		_G.LocalPlayer_Name = tostring(game:GetService('Players').LocalPlayer.Name)
 	end)
 	_G.TimeStarted = tick()
-	TimedStarted = tick()
-	warn('starting')
+	TimedStarted = _G.TimeStarted
+	warn('starting lololol')
 	--C['K_'..game.PlaceId]()
 end
 spawn(function()
