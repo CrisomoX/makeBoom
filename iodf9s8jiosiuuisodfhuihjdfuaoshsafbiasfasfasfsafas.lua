@@ -294,6 +294,7 @@ coroutine.wrap(function()
 			Err = Dir:FindFirstChild(Err.Name, true) or Err
 			if Err.Text:sub(0,12) == 'Disconnected' then
 				if a == true then return end; a = true
+						wait(.55)
 				if Err.Text:sub(0, 12) == "Disconnected" then
 					if _G.Disconnect ~= true then
 						SendServerCrashed(tostring(_G.ErrMessage or 'Client disconnected from server or crashed server!'))
