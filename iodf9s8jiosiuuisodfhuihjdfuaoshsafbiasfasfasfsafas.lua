@@ -798,7 +798,6 @@ function C.K_6416498845() -- CL Facility Roleplay
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
-
 	warn('Sending requests to game server... (This may take some time)')
 	--for i = 1, 2 do
 --[[
@@ -833,8 +832,10 @@ function C.K_6416498845() -- CL Facility Roleplay
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
 				pcall(function()
 					SettingsService.RF.Get:InvokeServer()
-					--SettingsService.RF.Get:InvokeServer()
-				end)    
+				end)   
+				pcall(function()
+					SettingsService.RF.Get:InvokeServer()
+				end)   
 			end
 		end
 	end)
