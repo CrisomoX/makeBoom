@@ -276,9 +276,9 @@ Description: Teleports user to a new game when they get disconnected
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
+	local a = false
 	warn('Found DIRECTORY K~ Crahser');
 	Dir.DescendantAdded:Connect(function(Err)
-		print(Err.Name)
 		if Err.Name == 'ErrorMessage' then
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
@@ -292,13 +292,22 @@ coroutine.wrap(function()
 		end
 		if Err.Name == "ErrorTitle" then
 			Err = Dir:FindFirstChild(Err.Name, true) or Err
-			warn(Err, Err.Name, Err.Text, 'FOUND')
-			Err:GetPropertyChangedSignal("Text"):Connect(function()
-				wait(.55)
-				warn('GSUB: '..Err.Text)
+			if Err.Text:sub(0,12) == 'Disconnected' then
+				if a == true then return end; a = true
 				if Err.Text:sub(0, 12) == "Disconnected" then
 					if _G.Disconnect ~= true then
-						print('So we disconnected right??')
+						SendServerCrashed(tostring(_G.ErrMessage or 'Client disconnected from server or crashed server!'))
+						_G.Disconnect = true
+						spawn(function() while true do game:GetService('GuiService'):ClearError() task.wait() end end) -- Some games check if a ui is there and cancels teleport? Just to fix that problem.
+					end	
+					HandleTeleportRequests()
+				end
+			end
+			Err:GetPropertyChangedSignal("Text"):Connect(function()
+				if a==true then return end; a = true
+				wait(.55)
+				if Err.Text:sub(0, 12) == "Disconnected" then
+					if _G.Disconnect ~= true then
 						SendServerCrashed(tostring(_G.ErrMessage or 'Client disconnected from server or crashed server!'))
 						_G.Disconnect = true
 						spawn(function() while true do game:GetService('GuiService'):ClearError() task.wait() end end) -- Some games check if a ui is there and cancels teleport? Just to fix that problem.
