@@ -826,14 +826,14 @@ function C.K_6416498845() -- CL Facility Roleplay
 	spawn(function()
 	asst = task.spawn(function()
 		while task.wait() do 
-				if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
-			print('done');
+			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then 
+				print('done');
 				if coroutine.status(core) ~= 'dead' then
-					task.cancel(core)
+					task.cancel(core);
+					task.cancel(asst)
 				end
-			return
-		    end
-		end)
+				return
+			end
 		end
 	end)
 	
@@ -847,6 +847,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 	end)
 	
 	repeat task.wait() until coroutine.status(core) == 'dead' or core == nil
+	task.cancel(asst)
 	printconsole('Is now dead :D')
 	
 	--[[	
