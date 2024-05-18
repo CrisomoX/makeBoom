@@ -271,6 +271,7 @@ coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService'CoreGui':WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
 	Dir.DescendantAdded:Connect(function(Err)
+		warn('test12334445')
 		if Err.Name == 'ErrorMessage' then
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
