@@ -276,9 +276,7 @@ Description: Teleports user to a new game when they get disconnected
 coroutine.wrap(function()
 	local Players = game:GetService('Players')
 	local Dir = game:GetService('CoreGui'):WaitForChild("RobloxPromptGui",math.huge):WaitForChild("promptOverlay",math.huge)
-	warn('dir2')
 	Dir.DescendantAdded:Connect(function(Err)
-		warn('dir2')
 		if Err.Name == 'ErrorMessage' then
 			Err:GetPropertyChangedSignal('Text'):Connect(function()
 				_G.ErrMessage = tostring(Err.Text)
