@@ -9,7 +9,7 @@ Credits
 -- THIS IS IN BETA TESTING.
 printconsole = printconsole or (function(...)
 warn('[K~ Debug]:',...)
-end)()
+end)
 
 _G.CrashSettings = {
 	Enabled = true,
