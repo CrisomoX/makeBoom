@@ -889,7 +889,8 @@ function C.K_3226555017()
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
-	game:GetService("ReplicatedStorage").Settings:InvokeServer('Set',{LongString})
+	--game:GetService("ReplicatedStorage").Settings:InvokeServer('Set',{LongString})
+	print('testing');
 	printconsole('Client completed sending request!')
 --[[
 wait(4)
