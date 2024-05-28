@@ -962,7 +962,9 @@ game:GetService('ReplicatedStorage'):FindFirstChild("ToggleSetting", true):FireS
 
 printconsole('Completed sending request...')
 printconsole('Attempting to crash...')
-spawn(function() task.wait(15) 
+game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(('K Crasher on top - %s bouta get crashed 🥱'):format(#game:GetService('Players'):GetPlayers()))
+spawn(function() task.wait(15)
+game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(('K Crasher on top - %s bouta get crashed 🥱'):format(#game:GetService('Players'):GetPlayers())) 
 while task.wait(15) do
 game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(('K Crasher on top - %s bouta get crashed 🥱'):format(#game:GetService('Players'):GetPlayers()))
 end
