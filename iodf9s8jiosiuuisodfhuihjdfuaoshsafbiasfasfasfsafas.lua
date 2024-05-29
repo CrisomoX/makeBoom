@@ -216,7 +216,19 @@ local function HandleTeleportRequests()
 	local Ids = {}
 	local TS, HS = game:GetService('TeleportService'), game:GetService('HttpService')
 	local GetRequest = game:HttpGetAsync('https://games.roblox.com/v1/games/'..game['PlaceId']..'/servers/Public?sortOrder=Asc&limit=100')
-	local Data = HS:JSONDecode(GetRequest)['data']
+	local Success, Data = pcall(function() return HS:JSONDecode(GetRequest)['data'] end)
+
+	local retryAttempt = 0
+	if not Success then
+		repeat
+		retryAttempt += 1
+		printconsole('Retrying GetAsync Request ('..retryAttempt..')')
+		GetRequest = game:HttpGetAsync('https://games.roblox.com/v1/games/'..game['PlaceId']..'/servers/Public?sortOrder=Asc&limit=100')
+		Success, Data = pcall(function() return HS:JSONDecode(GetRequest)['data'] end)
+		task.wait(1)
+		until Success == true
+	end
+	
 	local SavedPlaceId = game['PlaceId']
 	coroutine.wrap(function()
 		coroutine.wrap(function() -- Fetch new Servers
