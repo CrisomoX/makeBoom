@@ -133,7 +133,11 @@ local function RetriveGameDetails()
 		TotalPlayers = '**'..(#Players:GetPlayers())..'**',
 		JobId = '**'..tostring(game['JobId'] or '?')..'**',
 		GameName = '**'..GameDetails.Name..'**',
-		GameIcon = HttpService:JSONDecode(ThumbnailRetriver).data[1].imageUrl,
+		GameIcon = (function() local s, res = pcall(function()
+		return HttpService:JSONDecode(ThumbnailRetriver).data[1].imageUrl
+		end)
+		if not s then return "https://www.roblox.com/favicon.ico" else return res end
+		end)(),
 		ServerIp = '**'..tostring(_G.Server or '?')..'**',
 		ExploitUsed = tostring(identifyexecutor() or 'Other'),
 		AccountUsed = tostring(game:GetService('Players').LocalPlayer or '?'),
