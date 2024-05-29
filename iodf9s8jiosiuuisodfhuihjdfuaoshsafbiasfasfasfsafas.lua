@@ -128,7 +128,7 @@ local function RetriveGameDetails()
 		Url = 'https://thumbnails.roblox.com/v1/places/gameicons?placeIds='..game.PlaceId..'&size=50x50&format=Png&isCircular=false',
 		Method = 'GET',
 	}).Body
-	local GameDetails = Marketplace:GetProductInfo(game.PlaceId)
+	local GameDetails = (function() local s, res = pcall(function() return Marketplace:GetProductInfo(game.PlaceId) end) if not s then return {Name="? - Failed to load"} else return res end)() or {
 	return {
 		TotalPlayers = '**'..(#Players:GetPlayers())..'**',
 		JobId = '**'..tostring(game['JobId'] or '?')..'**',
