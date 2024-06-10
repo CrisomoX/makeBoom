@@ -43,7 +43,9 @@ _G.CrashSettings = {
 		3262990286, -- Rice48454 -- banned
 		3931961529, -- BallersiKiller 
 		5397348825,
-		5397412913
+		5397412913,
+		5499875177, -- v7Ta6c7gLjOTM
+		5499951117 -- QJ8f03NTBYJDj
 	},
 	RP_Reasons = {
 		'hi',
