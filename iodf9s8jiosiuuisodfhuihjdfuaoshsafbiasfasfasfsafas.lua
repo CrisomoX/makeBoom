@@ -881,7 +881,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 	end
 	]]
 	--end
-	game:GetService("ReplicatedStorage"):FindFirstChild("SetTeamAndSpawn", true):InvokeServer("CS","CS")
+	game:GetService("ReplicatedStorage"):FindFirstChild("SetTeamAndSpawn", true):InvokeServer("BR","BR")
 task.wait(.25)
 game:GetService("ReplicatedStorage"):FindFirstChild("SetChannel", true):InvokeServer("GEN")
 game:GetService("ReplicatedStorage"):FindFirstChild("SetActive", true):InvokeServer(true)
