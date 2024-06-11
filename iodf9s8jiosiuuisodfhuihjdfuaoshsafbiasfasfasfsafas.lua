@@ -813,6 +813,8 @@ function C.K_6416498845() -- CL Facility Roleplay
 		game:GetService('Players').LocalPlayer:Kick('SettingsService returned nil')
 		return
 	end
+
+	pcall(function() game:FindFirstChild("SentryRemote",true):Destroy(); end); -- wow they logging errors brah :(
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 	game:GetService('NetworkClient'):SetOutgoingKBPSLimit(math.huge * math.huge)
 
