@@ -799,7 +799,7 @@ end
 function C.K_6416498845() -- CL Facility Roleplay
 	repeat wait() until game:IsLoaded()
 	printconsole('Crashing..')
-	LongString = string.rep('did u rlly even try LMAOO. K crahser on top :)                                              ',9800)
+	LongString = string.rep('did u rlly even try LMAOO. K crahser on top :)                                              ',99000)
 
 	local SettingsService;
 	for i,v in pairs(game:GetService('ReplicatedStorage'):GetDescendants()) do
