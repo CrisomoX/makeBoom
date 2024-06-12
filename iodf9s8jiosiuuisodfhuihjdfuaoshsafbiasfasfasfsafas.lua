@@ -950,7 +950,6 @@ game:GetService("ReplicatedStorage"):FindFirstChild("Chat", true):InvokeServer((
 .
 .
 .
-.
 we back at it again :3
 K Crasher on top - %s bouta get crashed 🥱
 K Crasher on top - %s bouta get crashed 🥱
