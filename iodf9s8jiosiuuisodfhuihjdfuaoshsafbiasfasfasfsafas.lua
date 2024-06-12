@@ -47,7 +47,7 @@ _G.CrashSettings = {
 		5499875177, -- v7Ta6c7gLjOTM
 		5499951117, -- QJ8f03NTBYJDj
 		6145350623,
-		6145537622
+		6145537622,
 	},
 	RP_Reasons = {
 		'hi',
