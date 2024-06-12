@@ -937,7 +937,7 @@ function C.K_6416498845() -- CL Facility Roleplay
 	end
 	]]
 	--end
---[[
+
 local randomTeams = {"BR","CS"}
 local team = randomTeams[math.random(1,#randomTeams)]
 	game:GetService("ReplicatedStorage"):FindFirstChild("SetTeamAndSpawn", true):InvokeServer(team,team)
@@ -946,9 +946,12 @@ game:GetService("ReplicatedStorage"):FindFirstChild("SetChannel", true):InvokeSe
 game:GetService("ReplicatedStorage"):FindFirstChild("SetActive", true):InvokeServer(true)
 
 local numberofPlayers = tostring(#game:GetService('Players'):GetPlayers())
-game:GetService("ReplicatedStorage"):FindFirstChild("Chat", true):InvokeServer((
+game:GetService("ReplicatedStorage"):FindFirstChild("Chat", true):InvokeServer(([[
 .
 .
+.
+.
+we back at it again :3
 K Crasher on top - %s bouta get crashed 🥱
 K Crasher on top - %s bouta get crashed 🥱
 K Crasher on top - %s bouta get crashed 🥱
@@ -956,8 +959,8 @@ K Crasher on top - %s bouta get crashed 🥱
 .
 .
 .
-):format(numberofPlayers,numberofPlayers,numberofPlayers))
-]]
+]]):format(numberofPlayers,numberofPlayers,numberofPlayers))
+
 	printconsole('Game server completed sending request!')
 	printconsole('Attempting to crash')
 
