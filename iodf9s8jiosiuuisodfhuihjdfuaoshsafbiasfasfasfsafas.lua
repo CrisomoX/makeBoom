@@ -799,7 +799,7 @@ function C.K_4787647409() -- Blacksite Zeta
 
 end
 function C.K_6416498845() -- CL Facility Roleplay
-	repeat wait() until game:IsLoaded()
+	repeat wait() until game:IsLoaded(); task.wait(1)
 	printconsole('Crashing..')
 	LongString = string.rep('did u rlly even try LMAOO. K crahser on top :)                                              ',9999)
 
