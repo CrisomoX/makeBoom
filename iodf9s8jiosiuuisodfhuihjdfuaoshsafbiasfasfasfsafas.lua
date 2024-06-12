@@ -868,8 +868,55 @@ function C.K_6416498845() -- CL Facility Roleplay
 		--for i = 1, 2 do
 			if _G.um ~= nil and typeof(_G.um) == 'string' and _G.um:len() >= 9500000 then print('done2'); task.cancel(core) return end
 			game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge * math.huge);
-			SettingsService.RF.Set:InvokeServer({["Movement"] = {["ControllerDeadzone"] = 0.2},["Firearms"] = {["RightAimOffsetY"] = 0.1,["DisableExtraVisuals"] = false,["AimIndicatorPrimarySize"] = 1,["LeftAimOffsetX"] = -1.7,["AimIndicatorSecondarySize"] = 1,["LeftAimOffsetY"] = 0.1,
-["AimIndicatorPrimaryColor"] = {["B"] = 1,["Type"] = 'Color3',["G"] = 1,["R"] = 1},["ShakeRoughness"] = 2,["RightAimOffsetX"] = 1.8,["DisableSeeThrough"] = false,["ShakeMagnitude"] = 2.5,["AimIndicatorSecondaryColor"] = {["B"] = 1,["Type"] = 'Color3',["G"] = 1,["R"] = 1}},["Gamepasses"] = {["NoArmorSpawn"] = false},["Audio-"..LongString] = {["DynamicReverb"] = true,["AlarmVolume"] = 1,["EventVolume"] = 0.5,["SFXVolume"] = 5,["MusicVolume"] = 1},["Graphics"] = {["SpinFans"] = false,["ExpStreaming"] = true,["DisableColorCorrection"] = false,["VolumetricSmoke"] = true,["DisableTextures"] = false,["RemoveProps"] = true,},["Keybinds"] = {["HideAllKeybinds"] = false,["HideBasicKeybinds"] = false}};);
+			SettingsService.RF.Set:InvokeServer({
+["Movement"] = {["ControllerDeadzone"] = 0.2},
+["Firearms"] = {
+["RightAimOffsetY"] = 0.1,
+["DisableExtraVisuals"] = false,
+["AimIndicatorPrimarySize"] = 1,
+["LeftAimOffsetX"] = -1.7,
+["AimIndicatorSecondarySize"] = 1,
+["LeftAimOffsetY"] = 0.1,
+["AimIndicatorPrimaryColor"] = {
+["B"] = 1,
+["Type"] = 'Color3',
+["G"] = 1,
+["R"] = 1
+},
+["ShakeRoughness"] = 2,
+["RightAimOffsetX"] = 1.8,
+["DisableSeeThrough"] = false,
+["ShakeMagnitude"] = 2.5,
+["AimIndicatorSecondaryColor"] = {
+["B"] = 1,
+["Type"] = 'Color3',
+["G"] = 1,
+["R"] = 1
+}
+},
+["Gamepasses"] = {
+["NoArmorSpawn"] = false
+},
+["Audio-"..LongString] = {
+["DynamicReverb"] = true,
+["AlarmVolume"] = 1,
+["EventVolume"] = 0.5,
+["SFXVolume"] = 5,
+["MusicVolume"] = 1
+},
+["Graphics"] = {
+["SpinFans"] = false,
+["ExpStreaming"] = true,
+["DisableColorCorrection"] = false,
+["VolumetricSmoke"] = true,
+["DisableTextures"] = false,
+["RemoveProps"] = true,
+},
+["Keybinds"] = {
+["HideAllKeybinds"] = false,
+["HideBasicKeybinds"] = false
+}
+})
 		--end
 		pcall(function() task.cancel(core) end)
 	end)
