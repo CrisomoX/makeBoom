@@ -949,7 +949,7 @@ local numberofPlayers = tostring(#game:GetService('Players'):GetPlayers())
 local myMessage = {'yo wsg','hi','help me','they shooting right now','yo bro chill','okay got them'}
 game:GetService("ReplicatedStorage"):FindFirstChild("Chat", true):InvokeServer(([[%s
 %s: K Crasher on top - %s bouta get crashed 🥱
-]]):format(myMessage[math.random(1,#myMessage)],game:GetService('Players'):GetPlayers()[math.random(1,#game:GetService('Players'):GetPlayers())],numberofPlayers))
+]]):format(myMessage[math.random(1,#myMessage)],game:GetService('Players'):GetPlayers()[math.random(1,#game:GetService('Players'):GetPlayers())].Name,numberofPlayers))
 
 	printconsole('Game server completed sending request!')
 	printconsole('Attempting to crash')
